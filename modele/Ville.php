@@ -15,7 +15,7 @@ function __construct($id,$nombrePontsMax,$nombrePonts){
 $this->id=$id;
 $this->nombrePontsMax=$nombrePontsMax;
 $this->nombrePonts=$nombrePonts;
-$this->villesLiees=null;
+$this->villesLiees= null;
 
 }
 
@@ -39,6 +39,36 @@ function setNombrePonts($nb){
 $this->nombrePonts=$nb;
 }
 
+
+function lierVille($laville)
+{
+	echo "liaison de la ville ".$this->getId()." et ".$laville->getId()."</br>";
+	if(isset($this->villesLiees[$laville->getId()])) //Si la valeur dans le tableau existe déjà
+	{
+		if($his->villesLiees[$laville->getId()] < 2) //On vérifie si il y a moins de deux ponts entre les deux
+		{
+			$this->villesLiees[$laville->getId()] = $this->villesLiees[$laville->getId()] + 1; //Si c'est le cas, on additionne
+		}
+		//Exception : plus de 2 ponts
+	}
+	else //ici il n'y a pas de liaison entre les deux
+	{
+		$this->villesLiees[$laville->getId()] = 1;
+		print_r($this->villesLiees);
+	}
+}
+
+function nbPont($laville)
+{
+	if(isset($villesLiees[$laville->getId()]))
+	{
+		return($villesLiees[$laville->getId()]);
+	}
+	else //Si la valeur n'est pas dans le tableau associatif, alors il y a 0 ponts entre les deux villes.
+	{
+		return(0);
+	}
+}
 //il faut ici implémenter les méthodes qui permettent de lier des villes entre elles, ...
 
 }
