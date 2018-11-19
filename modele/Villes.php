@@ -45,8 +45,11 @@ return isset($this->villes[$i][$j]);
 
 function lierVilles($ALigne,$ACol, $BLigne, $BCol)
 {
-	$this->getVille($ALigne, $ACol)->lierVille($this->getVille($BLigne, $BCol));
-	$this->getVille($BLigne,$BCol)->lierVille($this->getVille($ALigne, $ACol));
+	if($this->existe($ALigne,$ACol) && $this->existe($BLigne, $BCol))
+	{
+		$this->getVille($ALigne, $ACol)->lierVille($this->getVille($BLigne, $BCol));
+		$this->getVille($BLigne,$BCol)->lierVille($this->getVille($ALigne, $ACol));
+	}
 }
 
 function nbPont($ALigne,$ACol, $BLigne, $BCol)
