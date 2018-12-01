@@ -42,7 +42,6 @@ $this->nombrePonts=$nb;
 
 function lierVille($laville)
 {
-	echo "liaison de la ville ".$this->getId()." et ".$laville->getId()."</br>";
 	if(isset($this->villesLiees[$laville->getId()])) //Si la valeur dans le tableau existe déjà
 	{
 		if($this->villesLiees[$laville->getId()] < 2) //On vérifie si il y a moins de deux ponts entre les deux
@@ -71,6 +70,13 @@ function nbPont($laville)
 		return(0);
 	}
 }
+
+function estLiee($villeB)
+{
+	return(isset($this->villesLiees[$laville->getId()]));
+}
+
+
 //il faut ici implémenter les méthodes qui permettent de lier des villes entre elles, ...
 
 }

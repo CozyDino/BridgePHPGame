@@ -1,0 +1,11 @@
+table tr td
+{
+    width : 20px;
+    height : 20px;
+    font-size : 20px;
+}
+
+table tr td#index
+{
+    background-color: aqua;
+}
