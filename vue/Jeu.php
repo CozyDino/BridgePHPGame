@@ -71,13 +71,14 @@ class Vue
 	public function afficherFormulaire()
 	{
 		?>
-		<form method="POST" action="routeur.php">
+		<form method="POST" action="index.php">
 		<p> ______Selection ville A_________ </p>
 		Ligne : <input type="number" name="villeALigne"/>
 		Colonne : <input type="number" name="villeAColonne"/>
 		<p> ______Selection ville B_________ </p>
 		Ligne : <input type="number" name="villeBLigne"/>
 		Colonne : <input type="number" name="villeBColonne"/>
+		<input type="submit"/>
 		</form>
 		<?php
 	}
