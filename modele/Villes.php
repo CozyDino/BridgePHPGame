@@ -16,11 +16,9 @@ $this->villes[3][5]=new Ville("3",2,0);
 $this->villes[5][1]=new Ville("4",1,0);
 $this->villes[5][6]=new Ville("5",2,0);
 $this->villes[6][0]=new Ville("6",2,0);
-/*$this->lierVilles(0, 0, 0, 6);
-$this->lierVilles(0, 0, 3, 0);
-$this->lierVilles(3, 0, 3, 5);
-$this->lierVilles(0, 6, 5, 6);
-$this->lierVilles(0, 6, 5, 6);*/
+
+//Ville de test
+//$this->villes[1][1] = new Ville("7", 1, 0);
 }
 
 
@@ -153,7 +151,7 @@ function nbPont($ALigne,$ACol, $BLigne, $BCol)
 //Calcule, pour une coordonnées (Ligne, Colonne), le nombre de liens horizontaux là traversant.
 function nbLienTraversantHorizontal($ligne, $colonne)
 {
-	for($i = 0; $i < $colonne; $i++)
+	for($i = $ligne; $i >= 0 ; $i--)
 	{
 		if($this->existe($ligne, $i))
 		{
@@ -179,7 +177,7 @@ function nbLienTraversantHorizontal($ligne, $colonne)
 //Calcule, pour une coordonnées (Ligne, Colonne), le nombre de liens verticaux là traversant.
 function nbLienTraversantVertical($ligne, $colonne)
 {
-	for($i = 0; $i < $ligne; $i++)
+	for($i = $ligne; $i >= 0; $i--)
 	{
 		if($this->existe($i, $colonne))
 		{
@@ -199,6 +197,24 @@ function nbLienTraversantVertical($ligne, $colonne)
 			}
 		}
 	}
+}
+
+public function aGagne()
+{
+	for($i = 0; $i < 7; $i++)
+	{
+		for($j = 0; $j < 7; $j++)
+		{
+			if($this->existe($i, $j))
+			{
+				if($this->villes[$i][$j]->getNombrePonts() != $this->villes[$i][$j]->getNombrePontsMax())
+				{
+					return false;
+				}
+			}
+		}
+	}
+	return true;
 }
 
 //rajout d'éventuelles méthodes

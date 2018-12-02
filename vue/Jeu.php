@@ -73,6 +73,10 @@ class Vue
 			echo '</tr>';
 		}
 		echo "</table>";
+		if($villes->aGagne())
+		{
+			echo "Vous avez gagne";
+		}
 	}
 
 	public function afficherFormulaire()
