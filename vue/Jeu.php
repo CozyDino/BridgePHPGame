@@ -31,9 +31,16 @@ class Vue
 		<?php
 		$tableauVilles = $villes->getVilles();
 		echo "<table>";
+		echo '<tr>';
+		echo '<td id="indexes"></td>';
+		for($i = 0; $i < 7; $i++)
+		{
+			echo '<td id="indexes">'.$i."</td>";
+		}
 		for($i = 0; $i < 7; $i++)
 		{
 			echo '<tr>';
+			echo '<td id="indexes">'.$i.'</td>';
 			for($j = 0; $j < 7; $j++)
 			{
 				if(isset($tableauVilles[$i][$j]))
@@ -80,6 +87,7 @@ class Vue
 		Colonne : <input type="number" name="villeBColonne"/>
 		<input type="submit"/>
 		</form>
+		<a href="recommencer.php">Recommencer</a>
 		<?php
 	}
 }
