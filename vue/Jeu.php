@@ -80,9 +80,11 @@ class Vue
 		<p>Créer un lien entre deux ville qui ont déjà un lien en créera un deuxième, le refaire supprimera le lien</p>
 		</div>
 		<?php
+
 		if($villes->aGagne())
 		{
-			echo "Vous avez gagne";
+			echo "Vous avez gagné ";
+			echo '<img src="http://image.noelshack.com/fichiers/2017/08/1487984196-789797987987464646468798798.png" alt="Image Bien Joué">';
 		}
 	}
 

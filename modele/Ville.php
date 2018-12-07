@@ -64,7 +64,9 @@ function lierVille($laville)
 }
 
 function delierVille($laville)
-{
+
+{	
+	$this->setNombrePonts($this->getNombrePonts() - $this->villesLiees[$laville->getId()]);
 	$this->villesLiees[$laville->getId()] = null;
 }
 

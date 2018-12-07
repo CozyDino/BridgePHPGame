@@ -169,6 +169,7 @@ function existeLienEntre($ALigne,$ACol, $BLigne, $BCol)
 	}
 	else
 	{
+		echo "Il y a un lien gênant";
 		return false;
 	}
 }
