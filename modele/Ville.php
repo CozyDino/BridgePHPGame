@@ -59,7 +59,6 @@ function lierVille($laville)
 	{
 		$this->villesLiees[$laville->getId()] = 1;
 		$this->setNombrePonts($this->getNombrePonts() + 1);
-		print_r($this->villesLiees);
 	}
 }
 
