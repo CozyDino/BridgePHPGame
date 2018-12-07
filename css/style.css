@@ -1,3 +1,9 @@
+table
+{
+    display : block;
+    float: left;
+}
+
 table tr td
 {
     width : 20px;
@@ -8,4 +14,17 @@ table tr td
 table tr td#indexes
 {
     background-color: aqua;
+}
+
+div#message_aide
+{
+    //float: right;
+    display: block;
+    margin-right: 0;
+}
+
+div#formulaire
+{
+    dislay: block;
+   // float :left;
 }

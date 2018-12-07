@@ -73,6 +73,13 @@ class Vue
 			echo '</tr>';
 		}
 		echo "</table>";
+		?>
+		<div id="message_aide">
+		<p>Bienvenue sur le bridge game !</p>
+		<p>Créer des liens en selectionnant les villes grâce au formulaire</p>
+		<p>Créer un lien entre deux ville qui ont déjà un lien en créera un deuxième, le refaire supprimera le lien</p>
+		</div>
+		<?php
 		if($villes->aGagne())
 		{
 			echo "Vous avez gagne";
@@ -82,6 +89,7 @@ class Vue
 	public function afficherFormulaire()
 	{
 		?>
+		<div id="formulaire">
 		<form method="POST" action="index.php">
 		<p> ______Selection ville A_________ </p>
 		Ligne : <input type="number" name="villeALigne"/>
@@ -92,6 +100,7 @@ class Vue
 		<input type="submit"/>
 		</form>
 		<a href="recommencer.php">Recommencer</a>
+		</div>
 		<?php
 	}
 }
