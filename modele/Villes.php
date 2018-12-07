@@ -18,6 +18,7 @@ $this->villes[5][6]=new Ville("5",2,0);
 $this->villes[6][0]=new Ville("6",2,0);
 
 //Ville de test
+
 //$this->villes[1][1] = new Ville("7", 1, 0);
 }
 
@@ -52,42 +53,73 @@ return isset($this->villes[$i][$j]);
 //Lie une ville a à une ville B en fonction de ses coordonnées
 function lierVilles($ALigne,$ACol, $BLigne, $BCol)
 {
-	$lienCoupant = false;
 	if($this->existe($ALigne,$ACol) && $this->existe($BLigne, $BCol) 
-	&& ($ALigne == $BLigne || $ACol == $BCol) 
-	&& !$this->existeVilleEntre($ALigne,$ACol, $BLigne, $BCol))
+	&& ($ALigne == $BLigne || $ACol == $BCol)
+	&& !($ALigne == $BLigne && $ACol == $BCol) 
+	&& !$this->existeVilleEntre($ALigne,$ACol, $BLigne, $BCol)
+	&& !$this->existeLienEntre($ALigne, $ACol, $BLigne, $BCol))
 	{
-		//On doit ensuite voir si il n'y à pas de lien coupant la future liaison, il faut donc calculer pour chaque case, le nb de lien traversant horizontaux et verticaux
-		if($ACol == $BCol)
-		{
-			for($i = $ALigne + 1; $i < $BLigne; $i++)
-			{
-				if($this->nbLienTraversantHorizontal($i, $ACol) > 0)
-				{
-					$lienCoupant = true;
-				}
-			}
-		}
-		if($ALigne == $BLigne)
-		{
-			for($i = $ACol + 1; $i < $BCol; $i++)
-			{
-				if($this->nbLienTraversantVertical($ALigne, $i) > 0)
-				{
-					$lienCoupant = true;
-				}
-			}
-		}
-		if(!$lienCoupant)
-		{
 			$this->getVille($ALigne, $ACol)->lierVille($this->getVille($BLigne, $BCol));
 			$this->getVille($BLigne,$BCol)->lierVille($this->getVille($ALigne, $ACol));
-		}
 	}
 }
 
 //Regarde si il existe une ville entre la position d'une ville A et une autre position d'une ville B
 function existeVilleEntre($ALigne,$ACol, $BLigne, $BCol)
+{
+	if($ALigne == $BLigne)
+	{
+		if($ACol < $BCol)
+		{
+			for($i = $ACol + 1; $i < $BCol; $i++)
+			{
+				if($this->nbLienTraversantVertical($ALigne, $i) > 0)
+				{
+					return true;
+				}
+			}
+		}
+		else
+		{
+			for($i = $BCol + 1; $i < $ACol; $i++)
+			{
+				if($this->nbLienTraversantVertical($ALigne, $i) > 0)
+				{
+					return true;
+				}
+			}
+		}
+	}
+	else if($ACol == $BCol)
+	{
+		if($ALigne < $BLigne)
+		{
+			for($i = $ALigne + 1; $i < $BLigne; $i++)
+			{
+				if($this->nbLienTraversantHorizontal($i, $ACol) > 0)
+				{
+					return true;
+				}
+			}
+		}
+		else
+		{
+			for($i = $BLigne + 1; $i < $ALigne; $i++)
+			{
+				if($this->nbLienTraversantHorizontal($i, $ACol) > 0)
+				{
+					return true;
+				}
+			}
+		}
+	}
+	else
+	{
+		return false;
+	}
+}
+
+function existeLienEntre($ALigne,$ACol, $BLigne, $BCol)
 {
 	if($ALigne == $BLigne)
 	{

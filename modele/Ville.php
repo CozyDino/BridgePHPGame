@@ -49,7 +49,11 @@ function lierVille($laville)
 			$this->villesLiees[$laville->getId()] = $this->villesLiees[$laville->getId()] + 1; //Si c'est le cas, on additionne
 			$this->setNombrePonts($this->getNombrePonts() + 1);
 		}
-		//Exception : plus de 2 ponts
+		else
+		{
+			$this->delierVille($laville);
+		}
+		
 	}
 	else //ici il n'y a pas de liaison entre les deux
 	{
@@ -57,6 +61,11 @@ function lierVille($laville)
 		$this->setNombrePonts($this->getNombrePonts() + 1);
 		print_r($this->villesLiees);
 	}
+}
+
+function delierVille($laville)
+{
+	$this->villesLiees[$laville->getId()] = null;
 }
 
 function nbPont($laville)
