@@ -25,6 +25,9 @@ class AuthControleur
                 $this->vue->afficherJeu(new Villes());
 		        $this->vue->afficherFormulaire();
             }
+            else{
+                $this->vue->afficherLogin();
+            }
         }
     }
 }
