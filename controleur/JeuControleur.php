@@ -2,6 +2,7 @@
 
 require_once "modele/Villes.php";
 require_once "vue/Jeu.php";
+require_once "controleur/AuthControleur.php";
 
 class JeuControleur
 {

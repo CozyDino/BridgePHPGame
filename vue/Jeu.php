@@ -30,6 +30,7 @@ class Vue
 		</head>
 		<?php
 		$tableauVilles = $villes->getVilles();
+		echo "Vous êtes connecté en tant que ".$_SESSION['login'];
 		echo "<table>";
 		echo '<tr>';
 		echo '<td id="indexes"></td>';
@@ -102,7 +103,19 @@ class Vue
 		<input type="submit"/>
 		</form>
 		<a href="recommencer.php">Recommencer</a>
+		<a href="deconnexion.php">Deconnexion</a>
 		</div>
+		<?php
+	}
+
+	public function afficherLogin()
+	{
+		?>
+		<form method="POST" action="index.php">
+			Login : <input type="text" name="login">
+			Password : <input type="password" name="password">
+			<input type="submit" value="connexion">
+		</form>
 		<?php
 	}
 }
