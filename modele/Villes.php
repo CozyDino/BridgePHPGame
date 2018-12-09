@@ -119,6 +119,7 @@ function existeVilleEntre($ALigne,$ACol, $BLigne, $BCol)
 	}
 }
 
+//Regarde si il existe un lien gếnant entre deux positions
 function existeLienEntre($ALigne,$ACol, $BLigne, $BCol)
 {
 	if($ALigne == $BLigne)
